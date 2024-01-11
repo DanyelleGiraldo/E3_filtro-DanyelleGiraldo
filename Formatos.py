@@ -19,7 +19,7 @@ def crearformato():
         "precio": precioformato
     }
 
-    data = cargar_base_datos()
+    data = cargar_base_datosformatos()
     data["formato"].append(formato)
 
     with open("Formatos.json", "w") as file:
@@ -28,7 +28,7 @@ def crearformato():
     print("Formato inscrito exitosamente.")
 
 def listaformatos():
-    data = cargar_base_datos()
+    data = cargar_base_datosformatos()
 
     if data["formato"]:
         print("Listado de formatos registrados:")

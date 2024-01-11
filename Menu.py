@@ -1,8 +1,15 @@
-from Funciones.Generos import Creargenero, listargeneros
-from Funciones.Actores import crearactor, listaractores
-from Funciones.Formatos import crearformato, listaformatos
-from Funciones.Peliculas import *
-from Funciones.Gestor_de_Informes import listar_peliculas_por_genero, listar_peliculas_por_actor, buscar_pelicula_por_id
+import os
+from Generos import Creargenero, listargeneros
+from Actores import crearactor, listaractores
+from Formatos import crearformato, listaformatos
+from Peliculas import (
+    agregarpelicula, editarpelicula, eliminarpelicula, eliminaractor,
+    buscar_pelicula_por_id, listar_todas_las_peliculas
+)
+from Gestor_de_Informes import (
+    listar_peliculas_por_genero, listar_peliculas_por_actor, buscar_pelicula_por_id
+)
+
 def mostrar_menu():
     while True:
         print("1. Administrador de generos")
@@ -38,12 +45,12 @@ def submenugeneros():
         print("1. Crear genero")
         print("2. Listar generos")
         print("3. Volver al menú principal")
-        opgenero = input("Seleccione su opcion: ").strip
+        opgenero = input("Seleccione su opcion: ").strip()
 
         if opgenero == "1":
             Creargenero()
         elif opgenero == "2":
-            listargeneros
+            listargeneros()
         elif opgenero == "3":
             print("Volviendo al menú principal.")
             break
@@ -52,40 +59,40 @@ def submenugeneros():
 
 def submenuactores():
     while True:
-         print("1. Crear actor")
-         print("2. Listar actores")
-         print("3. Volver al menú principal")
-         opactor = input("Seleccione su opcion: ").strip
- 
-         if opactor == "1":
+        print("1. Crear actor")
+        print("2. Listar actores")
+        print("3. Volver al menú principal")
+        opactor = input("Seleccione su opcion: ").strip()
+
+        if opactor == "1":
             crearactor()
-         elif opactor == "2":
+        elif opactor == "2":
             listaractores()
-         elif opactor == "3":
-             print("Volviendo al menú principal.")
-             break
-         else:
-             print("Opcion no valida")
+        elif opactor == "3":
+            print("Volviendo al menú principal.")
+            break
+        else:
+            print("Opcion no valida")
 
 def gestorformatos():
     while True:
-         print("1. Crear formatos")
-         print("2. Listar formatos")
-         print("3. Volver al menú principal")
-         opactor = input("Seleccione su opcion: ").strip
- 
-         if opactor == "1":
+        print("1. Crear formatos")
+        print("2. Listar formatos")
+        print("3. Volver al menú principal")
+        opactor = input("Seleccione su opcion: ").strip()
+
+        if opactor == "1":
             crearformato()
-         elif opactor == "2":
+        elif opactor == "2":
             listaformatos()
-         elif opactor == "3":
-             print("Volviendo al menú principal.")
-             break
-         else:
-             print("Opcion no valida")
+        elif opactor == "3":
+            print("Volviendo al menú principal.")
+            break
+        else:
+            print("Opcion no valida")
 
 def gestorpeliculas():
-    while True:  # Agregado para que el submenú se repita
+    while True:
         print("1. Agregar pelicula")
         print("2. Editar pelicula.")
         print("3. Eliminar pelicula.")
@@ -115,12 +122,12 @@ def gestorpeliculas():
 
 def submenuinformes():
     while True:
-        print("1. Listar las peliculas de un genero especifico.")        
+        print("1. Listar las peliculas de un genero especifico.")
         print("2. Listar las peliculas donde el protagonista sea Silvester Stallone")
         print("3. Buscar pelicula y mostrar la sinopsis y actores")
         print("4. ir al menu principal")
-        opactor = input("Seleccione su opcion: ").strip
- 
+        opactor = input("Seleccione su opcion: ").strip()
+
         if opactor == "1":
             listar_peliculas_por_genero()
         elif opactor == "2":
@@ -132,3 +139,6 @@ def submenuinformes():
             break
         else:
             print("Opcion no valida")
+
+# Llamada a la función principal del programa
+mostrar_menu()

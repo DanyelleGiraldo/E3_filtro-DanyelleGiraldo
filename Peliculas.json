@@ -1,16 +1,5 @@
 {
-  "peliculas": {
-    "11": {
-      "id": "11",
-      "nombre": "1",
-      "duracion": "1",
-      "sinopsis": "1",
-      "genero": {
-        "id": "123",
-        "nombre": "danilooooo"
-      }
-    }
-  },
+  "peliculas": {},
   "genero": {},
   "actores": [],
   "formatos": []

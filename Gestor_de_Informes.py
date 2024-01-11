@@ -1,9 +1,29 @@
 from Peliculas import cargar_base_datos_peliculas
-from Generos import listargeneros
+from Generos import listargeneros, cargar_base_datosgeneros
 from Actores import listaractores, cargar_base_datosactores
 
+def obtener_nombre_genero(id_genero, datageneros):
+    for item in datageneros:
+        if isinstance(item, list):
+            if item[0]["id"] == id_genero:
+                return item[0]["nombre"]
+        elif isinstance(item, dict):
+            if item["id"] == id_genero:
+                return item["nombre"]
+    return None
+def obtener_nombre_actor(id_actor, data_actores):
+    for item in data_actores:
+        if isinstance(item, list):
+            if item[0]["id"] == id_actor:
+                return item[0]["nombre"]
+        elif isinstance(item, dict):
+            if item["id"] == id_actor:
+                return item["nombre"]
+    return None
+
 def listar_peliculas_por_genero():
-    data = cargar_base_datos_peliculas()
+    data_generos = cargar_base_datosgeneros()
+    data_peliculas = cargar_base_datos_peliculas()
 
     # Mostrar la lista de géneros disponibles
     print("Listado de géneros registrados:")
@@ -11,9 +31,11 @@ def listar_peliculas_por_genero():
 
     genero_id = input("Ingrese el ID del género para listar sus películas: ")
 
-    if genero_id in data["genero"]:
-        nombre_genero = data["genero"][genero_id]["nombre"]
-        peliculas_del_genero = [pelicula for pelicula in data["peliculas"].values() if pelicula["genero"]["id"] == genero_id]
+    # Obtener el nombre del género
+    nombre_genero = obtener_nombre_genero(genero_id, data_generos["genero"])
+
+    if nombre_genero:
+        peliculas_del_genero = [pelicula for pelicula in data_peliculas["peliculas"].values() if pelicula["genero"]["id"] == genero_id]
 
         if peliculas_del_genero:
             print(f"\nListado de películas del género {nombre_genero}:")
@@ -31,7 +53,8 @@ def listar_peliculas_por_genero():
         print("ID de género no válido. Por favor, elija un ID de género existente.")
 
 def listar_peliculas_por_actor():
-    data = cargar_base_datos_peliculas()
+    data_actores = cargar_base_datosactores()
+    data_peliculas = cargar_base_datos_peliculas()
 
     # Mostrar la lista de actores disponibles
     print("Listado de actores registrados:")
@@ -39,9 +62,11 @@ def listar_peliculas_por_actor():
 
     actor_id = input("Ingrese el ID del actor para listar las películas en las que ha participado: ")
 
-    if actor_id in cargar_base_datosactores["actor"]:
-        nombre_actor = cargar_base_datosactores["actor"][actor_id]["nombre"]
-        peliculas_del_actor = [pelicula for pelicula in data["peliculas"].values() if 'actor' in pelicula and pelicula['actor']['id'] == actor_id]
+    # Obtener el nombre del actor
+    nombre_actor = obtener_nombre_actor(actor_id, data_actores["actor"])
+
+    if nombre_actor:
+        peliculas_del_actor = [pelicula for pelicula in data_peliculas["peliculas"].values() if 'actor' in pelicula and pelicula['actor']['id'] == actor_id]
 
         if peliculas_del_actor:
             print(f"\nListado de películas en las que ha participado {nombre_actor}:")

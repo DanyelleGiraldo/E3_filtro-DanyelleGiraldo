@@ -6,6 +6,13 @@
         "nombre": "Danilo",
         "papel": "Protagonista"
       }
+    ],
+    [
+      {
+        "id": "123",
+        "nombre": "Danilo",
+        "papel": "Prota"
+      }
     ]
   ]
 }

@@ -18,7 +18,7 @@ def Creargenero():
         "nombre": nombregenero
     }
 
-    data = cargar_base_datos()
+    data = cargar_base_datosgeneros()
     data["genero"].append([genero])  # Ensure a list is appended
 
     with open("Generos.json", "w") as file:
@@ -27,7 +27,7 @@ def Creargenero():
     print("Género inscrito exitosamente.")
 
 def listargeneros():
-    data = cargar_base_datos()
+    data = cargar_base_datosgeneros()
 
     if data["genero"]:
         print("Listado de géneros registrados:")
