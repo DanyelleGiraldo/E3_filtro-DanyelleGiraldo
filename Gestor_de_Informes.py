@@ -1,4 +1,4 @@
-from Peliculas import cargar_base_datos_peliculas
+from Peliculas import cargar_base_datos_peliculas, listar_todas_las_peliculas
 from Generos import listargeneros, cargar_base_datosgeneros
 from Actores import listaractores, cargar_base_datosactores
 
@@ -82,7 +82,7 @@ def listar_peliculas_por_actor():
 
 def buscar_pelicula_por_id():
     data = cargar_base_datos_peliculas()
-
+    listar_todas_las_peliculas()
     id_pelicula_a_buscar = input("Ingrese el ID de la película que desea buscar: ")
 
     if id_pelicula_a_buscar in data["peliculas"]:
