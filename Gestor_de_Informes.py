@@ -25,13 +25,12 @@ def listar_peliculas_por_genero():
     data_generos = cargar_base_datosgeneros()
     data_peliculas = cargar_base_datos_peliculas()
 
-    # Mostrar la lista de géneros disponibles
+    
     print("Listado de géneros registrados:")
     listargeneros()
 
     genero_id = input("Ingrese el ID del género para listar sus películas: ")
 
-    # Obtener el nombre del género
     nombre_genero = obtener_nombre_genero(genero_id, data_generos["genero"])
 
     if nombre_genero:
@@ -56,13 +55,11 @@ def listar_peliculas_por_actor():
     data_actores = cargar_base_datosactores()
     data_peliculas = cargar_base_datos_peliculas()
 
-    # Mostrar la lista de actores disponibles
     print("Listado de actores registrados:")
     listaractores()
 
     actor_id = input("Ingrese el ID del actor para listar las películas en las que ha participado: ")
 
-    # Obtener el nombre del actor
     nombre_actor = obtener_nombre_actor(actor_id, data_actores["actor"])
 
     if nombre_actor:

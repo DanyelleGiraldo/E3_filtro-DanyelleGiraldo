@@ -55,7 +55,7 @@ def agregarpelicula():
     nombre_pelicula = input("Ingrese el nombre de la película: ")
     duracion_pelicula = input("Ingrese la duración de la película: ")
     sinopsis_pelicula = input("Ingrese la sinopsis de la película: ")
-    listargeneros()  # Mostrar la lista de géneros disponibles
+    listargeneros()  
     id_genero = input("Ingrese el ID del género: ")
     listaractores()
     id_actor= input("Ingrese el ID del actor: ")

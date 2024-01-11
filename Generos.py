@@ -19,7 +19,7 @@ def Creargenero():
     }
 
     data = cargar_base_datosgeneros()
-    data["genero"].append([genero])  # Ensure a list is appended
+    data["genero"].append([genero])  
 
     with open("Generos.json", "w") as file:
         json.dump(data, file, indent=2)
@@ -33,7 +33,7 @@ def listargeneros():
         print("Listado de géneros registrados:")
         for lista_genero in data["genero"]:
             for genero in lista_genero:
-                if isinstance(genero, dict):  # Check if it's a dictionary
+                if isinstance(genero, dict):  
                     print(f"ID: {genero['id']}, Nombre: {genero['nombre']}")
     else:
         print("No hay géneros registrados.")
