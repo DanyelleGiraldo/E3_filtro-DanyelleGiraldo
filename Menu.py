@@ -140,5 +140,4 @@ def submenuinformes():
         else:
             print("Opcion no valida")
 
-# Llamada a la función principal del programa
 mostrar_menu()
