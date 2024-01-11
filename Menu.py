@@ -123,7 +123,7 @@ def gestorpeliculas():
 def submenuinformes():
     while True:
         print("1. Listar las peliculas de un genero especifico.")
-        print("2. Listar las peliculas donde el protagonista sea Silvester Stallone")
+        print("2. Listar las peliculas por protagonista")
         print("3. Buscar pelicula y mostrar la sinopsis y actores")
         print("4. ir al menu principal")
         opactor = input("Seleccione su opcion: ").strip()
